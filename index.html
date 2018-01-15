@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Weather forecast</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+<link rel="stylesheet" href="owlcarousel/owl.theme.default.css">
+   
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400&amp;subset=cyrillic" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+ 
+  </head>
+  <body>
+<div class="container header ">
+  <div class="row">
+    <div class="col text-center">
+    <h1>Get your weather forecast!</h1>
+    </div>
+  </div>
+  
+</div>
+
+
+  <div class="container content">  
+    <div class="row">
+      <div class="col text-center">
+     <h4>You can search weather by country and city name or by your location:</h4>
+    </div>
+    </div>
+<div class="row search-input-block justify-content-around">
+  <div class="col-7 text-center">
+  <input type="text" id="country" placeholder="Country (state for US)" class="input-search">
+  <input type="text" id="city" placeholder="City" class="input-search">
+  <input type="button" id="button" value="Search" class="button">
+  </div>
+  <div class="col-5 text-center">
+    or search by your current location: 
+  <input type="button" id="by_location" value="Search" class="button">
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-5 ">
+  <div class="owl-carousel owl-theme">
+
+
+    <div class="weather-block text-center">  
+      <div class="ny-weather-heading"></div>
+      <div class="ny-weather-icon" ></div>
+      <div class="ny-weather-block"></div>
+    </div>
+
+
+    <div class="weather-block text-center">
+      <div class="lond-weather-heading"></div>
+
+      <div class="lond-weather-icon" ></div>
+      <div class="lond-weather-block"></div>
+    </div>
+
+
+
+    <div class="weather-block text-center" >
+      <div class="result-weather-heading"></div>
+      <div class="weather-icon" ></div>
+      <div class="result-weather-block"></div>
+</div>
+
+
+
+    <div class="weather-block text-center">
+      <div class="tokyo-weather-heading"></div>
+      <div class="tokyo-weather-icon" ></div>
+      <div class="tokyo-weather-block"></div>
+    </div>
+    <div class="weather-block text-center">
+      <div class="paris-weather-heading"></div>
+      <div class="paris-weather-icon" ></div>
+      <div class="paris-weather-block"></div>
+    </div>
+   
+</div>
+</div>
+</div>
+
+<div class="row justify-content-center text-center fill-text">
+  <div class="col">
+    <p>You can check weather in another big cities by using buttons "prev" and "next"</p>
+    <p>Also get weather by clicking on any location on the map:</p>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+<div class="col">
+<div id="map" class="google-map"></div>
+</div>
+</div>
+
+</div>
+
+<div class="container content">
+
+  <div class="row justify-content-center text-center">
+    <div class="col subcribe-heading"> <h2>Subscribe to get weather forecast daily!</h2></div>
+  </div>
+  <div class="row justify-content-center text-center  rules-container">
+    <div class="rules-block content"><h4>1. Just enjoy our service!</h4></div>
+<form>
+  <input type="name" name="user_name" required="required" placeholder="Your name" class="subscribe-input">
+  <input type="email" name="user_email" required="required" placeholder="your@email.com" class="subscribe-input">
+  <br>
+  <p>Put here yout phone number if want to receive messages:</p>
+  <input type="text" name="user_phone" pattern="(\d{3})-\d{3}-\d{2}-\d{2}" required="required" placeholder="xxx-xxx-xx-xx" class="subscribe-input">
+  <br>
+  <input type="checkbox" required="required" class="checkbox" id="checkbox">
+  <label for="checkbox">I've read <i id="label">terms and conditions</i></label>
+  <br>
+  <input type="submit" value="Send" class="button">
+
+</form>
+</div>
+</div>
+
+
+
+
+     <script src="js/jquery-3.2.1.js"></script>
+     <script src="owlcarousel/owl.carousel.min.js"></script>
+    
+
+   <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtFEq_zofH-pK-In1EjE6HE7RSOD5zm1M&callback=initMap">
+    </script>
+    <script src="js/main.js"></script>
+  
+  </body>
+</html>
