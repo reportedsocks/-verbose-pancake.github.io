@@ -1,6 +1,6 @@
 jQuery(document).ready(function ($) {
     $.ajax({
-        url: "http://api.wunderground.com/api/f5b590bbf5a6de61/geolookup/conditions/q/autoip.json",
+        url: "https://api.wunderground.com/api/f5b590bbf5a6de61/geolookup/conditions/q/autoip.json",
         dataType: "jsonp",
         success: function (parsed_json) {
             var location = parsed_json['location']['city'];
@@ -17,7 +17,7 @@ jQuery(document).ready(function ($) {
         }
     });
     $.ajax({
-        url: "http://api.wunderground.com/api/f5b590bbf5a6de61/geolookup/conditions/q/NY/NewYork.json",
+        url: "https://api.wunderground.com/api/f5b590bbf5a6de61/geolookup/conditions/q/NY/NewYork.json",
         dataType: "jsonp",
         success: function (parsed_json) {
             var location = parsed_json['location']['city'];
@@ -34,7 +34,7 @@ jQuery(document).ready(function ($) {
         }
     });
     $.ajax({
-        url: "http://api.wunderground.com/api/f5b590bbf5a6de61/geolookup/conditions/q/UK/London.json",
+        url: "https://api.wunderground.com/api/f5b590bbf5a6de61/geolookup/conditions/q/UK/London.json",
         dataType: "jsonp",
         success: function (parsed_json) {
             var location = parsed_json['location']['city'];
@@ -51,7 +51,7 @@ jQuery(document).ready(function ($) {
         }
     });
     $.ajax({
-        url: "http://api.wunderground.com/api/f5b590bbf5a6de61/geolookup/conditions/q/japan/tokyo.json",
+        url: "https://api.wunderground.com/api/f5b590bbf5a6de61/geolookup/conditions/q/japan/tokyo.json",
         dataType: "jsonp",
         success: function (parsed_json) {
             var location = parsed_json['location']['city'];
@@ -68,7 +68,7 @@ jQuery(document).ready(function ($) {
         }
     });
     $.ajax({
-        url: "http://api.wunderground.com/api/f5b590bbf5a6de61/geolookup/conditions/q/france/paris.json",
+        url: "https://api.wunderground.com/api/f5b590bbf5a6de61/geolookup/conditions/q/france/paris.json",
         dataType: "jsonp",
         success: function (parsed_json) {
             var location = parsed_json['location']['city'];
@@ -87,7 +87,7 @@ jQuery(document).ready(function ($) {
     $("#button").on("click", function () {
         var country = $("#country").val();
         var city = $("#city").val();
-        var root = "http://api.wunderground.com/api/f5b590bbf5a6de61/geolookup/conditions/q/";
+        var root = "https://api.wunderground.com/api/f5b590bbf5a6de61/geolookup/conditions/q/";
         if (country != "" && city != "" && country != "Fill the field!" && city != "Fill the field!") {
             $.ajax({
                 url: root + country + "/" + city + ".json",
@@ -134,7 +134,7 @@ jQuery(document).ready(function ($) {
     });
     $("#by_location").on("click", function () {
         $.ajax({
-            url: "http://api.wunderground.com/api/f5b590bbf5a6de61/geolookup/conditions/q/autoip.json",
+            url: "https://api.wunderground.com/api/f5b590bbf5a6de61/geolookup/conditions/q/autoip.json",
             dataType: "jsonp",
             success: function (parsed_json) {
                 var location = parsed_json['location']['city'];
@@ -165,7 +165,7 @@ function initMap() {
             position: location,
             map: map
         });
-        var root = "http://api.wunderground.com/api/f5b590bbf5a6de61/geolookup/conditions/q/";
+        var root = "https://api.wunderground.com/api/f5b590bbf5a6de61/geolookup/conditions/q/";
         $.ajax({
             url: root + location.lat().toFixed(2) + "," + location.lng().toFixed(2) + ".json",
             dataType: "jsonp",
