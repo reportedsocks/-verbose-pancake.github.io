@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="owlcarousel/owl.theme.default.css">
    
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400&amp;subset=cyrillic" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="style/style.css">
  
   </head>
   <body>
@@ -32,18 +32,21 @@
     </div>
     </div>
 <div class="row search-input-block justify-content-around">
-  <div class="col-7 text-center">
-  <input type="text" id="country" placeholder="Country (state for US)" class="input-search">
-  <input type="text" id="city" placeholder="City" class="input-search">
-  <input type="button" id="button" value="Search" class="button">
+  <div class="col-12 col-sm-9 col-md-12 col-lg-7 text-center">
+    <form onsubmit="return search_form();" id="search_form">
+  <input type="text" id="country" placeholder="Country (state for US)" class="input-search" required="required">
+  <input type="text" id="city" placeholder="City" class="input-search" required="required">
+  <input type="submit" id="button" value="Search" class="button">
+</form>
   </div>
-  <div class="col-5 text-center">
+
+  <div class="col-md-12 col-lg-5 text-center">
     or search by your current location: 
   <input type="button" id="by_location" value="Search" class="button">
   </div>
 </div>
 <div class="row justify-content-center">
-  <div class="col-5 ">
+  <div class="col-md-8 col-lg-6 col-xl-5">
   <div class="owl-carousel owl-theme">
 
 
@@ -108,19 +111,27 @@
   </div>
   <div class="row justify-content-center text-center  rules-container">
     <div class="rules-block content"><h4>1. Just enjoy our service!</h4></div>
-<form>
-  <input type="name" name="user_name" required="required" placeholder="Your name" class="subscribe-input">
-  <input type="email" name="user_email" required="required" placeholder="your@email.com" class="subscribe-input">
+<form id="subscribe_form" onsubmit="return sub_form();">
+  <input type="name" id="user_name" required="required" placeholder="Your name" class="subscribe-input">
+  <input type="email" id="user_email" required="required" placeholder="your@email.com" class="subscribe-input">
   <br>
-  <p>Put here yout phone number if want to receive messages:</p>
-  <input type="text" name="user_phone" pattern="(\d{3})-\d{3}-\d{2}-\d{2}" required="required" placeholder="xxx-xxx-xx-xx" class="subscribe-input">
+  <p>Put here yout phone number if you want to receive messages:</p>
+  <input type="text" id="user_phone" pattern="(\d{3})-\d{3}-\d{2}-\d{2}"  placeholder="xxx-xxx-xx-xx" class="subscribe-input">
   <br>
   <input type="checkbox" required="required" class="checkbox" id="checkbox">
   <label for="checkbox">I've read <i id="label">terms and conditions</i></label>
   <br>
-  <input type="submit" value="Send" class="button">
+  <input type="submit" value="Send" class="button" id="subscribe-button">
 
 </form>
+
+<div id="modal_form">
+      
+      <h4>Thank you for subscribtion!</h4>
+      <p id="modal_close">Close</p> 
+</div>
+<div id="overlay"></div>
+
 </div>
 </div>
 

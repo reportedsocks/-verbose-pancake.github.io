@@ -12,7 +12,7 @@ jQuery(document).ready(function ($) {
             var pressure_mb = parsed_json['current_observation']['pressure_mb'];
             var weather = parsed_json['current_observation']['weather'];
             $('.weather-icon').css('background-image', icon);
-            $('.result-weather-block').html("Current temperature in " + location + " is: " + temp_c + '<br>' + " Feels like: " + feelslike_c + '<br>' + "Wind speed: " + wind_mph + " km/h" + '<br>' + "Relative humidity: " + relative_humidity + '<br>' + "Pressure : " + pressure_mb + " mbar");
+            $('.result-weather-block').html("Current temperature in " + location + " is: " + "<b>" + temp_c + "°C" + "</b>" + '<br>' + " Feels like: " + "<b>" + feelslike_c + "°C" + "</b>" + '<br>' + "Wind speed: " + "<b>" + wind_mph + " km/h" + "</b>" + '<br>' + "Relative humidity: " + "<b>" + relative_humidity + "</b>" + '<br>' + "Pressure : " + "<b>" + pressure_mb + " mbar" + "</b>");
             $('.result-weather-heading').html(weather);
         }
     });
@@ -29,7 +29,7 @@ jQuery(document).ready(function ($) {
             var pressure_mb = parsed_json['current_observation']['pressure_mb'];
             var weather = parsed_json['current_observation']['weather'];
             $('.ny-weather-icon').css('background-image', icon);
-            $('.ny-weather-block').html("Current temperature in " + location + " is: " + temp_c + '<br>' + " Feels like: " + feelslike_c + '<br>' + "Wind speed: " + wind_mph + " km/h" + '<br>' + "Relative humidity: " + relative_humidity + '<br>' + "Pressure : " + pressure_mb + " mbar");
+            $('.ny-weather-block').html("Current temperature in " + location + " is: " + "<b>" + temp_c + "°C" + "</b>" + '<br>' + " Feels like: " + "<b>" + feelslike_c + "°C" + "</b>" + '<br>' + "Wind speed: " + "<b>" + wind_mph + " km/h" + "</b>" + '<br>' + "Relative humidity: " + "<b>" + relative_humidity + "</b>" + '<br>' + "Pressure : " + "<b>" + pressure_mb + " mbar" + "</b>");
             $('.ny-weather-heading').html(weather);
         }
     });
@@ -46,12 +46,12 @@ jQuery(document).ready(function ($) {
             var pressure_mb = parsed_json['current_observation']['pressure_mb'];
             var weather = parsed_json['current_observation']['weather'];
             $('.lond-weather-icon').css('background-image', icon);
-            $('.lond-weather-block').html("Current temperature in " + location + " is: " + temp_c + '<br>' + " Feels like: " + feelslike_c + '<br>' + "Wind speed: " + wind_mph + " km/h" + '<br>' + "Relative humidity: " + relative_humidity + '<br>' + "Pressure : " + pressure_mb + " mbar");
+            $('.lond-weather-block').html("Current temperature in " + location + " is: " + "<b>" + temp_c + "°C" + "</b>" + '<br>' + " Feels like: " + "<b>" + feelslike_c + "°C" + "</b>" + '<br>' + "Wind speed: " + "<b>" + wind_mph + " km/h" + "</b>" + '<br>' + "Relative humidity: " + "<b>" + relative_humidity + "</b>" + '<br>' + "Pressure : " + "<b>" + pressure_mb + " mbar" + "</b>");
             $('.lond-weather-heading').html(weather);
         }
     });
     $.ajax({
-        url: "https://api.wunderground.com/api/f5b590bbf5a6de61/geolookup/conditions/q/japan/tokyo.json",
+        url: "https://api.wunderground.com/api/f5b590bbf5a6de61/geolookup/conditions/q/australia/sydney.json",
         dataType: "jsonp",
         success: function (parsed_json) {
             var location = parsed_json['location']['city'];
@@ -63,7 +63,7 @@ jQuery(document).ready(function ($) {
             var pressure_mb = parsed_json['current_observation']['pressure_mb'];
             var weather = parsed_json['current_observation']['weather'];
             $('.tokyo-weather-icon').css('background-image', icon);
-            $('.tokyo-weather-block').html("Current temperature in " + location + " is: " + temp_c + '<br>' + " Feels like: " + feelslike_c + '<br>' + "Wind speed: " + wind_mph + " km/h" + '<br>' + "Relative humidity: " + relative_humidity + '<br>' + "Pressure : " + pressure_mb + " mbar");
+            $('.tokyo-weather-block').html("Current temperature in " + location + " is: " + "<b>" + temp_c + "°C" + "</b>" + '<br>' + " Feels like: " + "<b>" + feelslike_c + "°C" + "</b>" + '<br>' + "Wind speed: " + "<b>" + wind_mph + " km/h" + "</b>" + '<br>' + "Relative humidity: " + "<b>" + relative_humidity + "</b>" + '<br>' + "Pressure : " + "<b>" + pressure_mb + " mbar" + "</b>");
             $('.tokyo-weather-heading').html(weather);
         }
     });
@@ -80,48 +80,8 @@ jQuery(document).ready(function ($) {
             var pressure_mb = parsed_json['current_observation']['pressure_mb'];
             var weather = parsed_json['current_observation']['weather'];
             $('.paris-weather-icon').css('background-image', icon);
-            $('.paris-weather-block').html("Current temperature in " + location + " is: " + temp_c + '<br>' + " Feels like: " + feelslike_c + '<br>' + "Wind speed: " + wind_mph + " km/h" + '<br>' + "Relative humidity: " + relative_humidity + '<br>' + "Pressure : " + pressure_mb + " mbar");
+            $('.paris-weather-block').html("Current temperature in " + location + " is: " + "<b>" + temp_c + "°C" + "</b>" + '<br>' + " Feels like: " + "<b>" + feelslike_c + "°C" + "</b>" + '<br>' + "Wind speed: " + "<b>" + wind_mph + " km/h" + "</b>" + '<br>' + "Relative humidity: " + "<b>" + relative_humidity + "</b>" + '<br>' + "Pressure : " + "<b>" + pressure_mb + " mbar" + "</b>");
             $('.paris-weather-heading').html(weather);
-        }
-    });
-    $("#button").on("click", function () {
-        var country = $("#country").val();
-        var city = $("#city").val();
-        var root = "https://api.wunderground.com/api/f5b590bbf5a6de61/geolookup/conditions/q/";
-        if (country != "" && city != "" && country != "Fill the field!" && city != "Fill the field!") {
-            $.ajax({
-                url: root + country + "/" + city + ".json",
-                dataType: "jsonp",
-                success: function (parsed_json) {
-                    var location = parsed_json['location']['city'];
-                    var temp_c = parsed_json['current_observation']['temp_c'];
-                    var feelslike_c = parsed_json['current_observation']['feelslike_c'];
-                    var icon = 'url(' + parsed_json['current_observation']['icon_url'] + ')';
-                    var wind_mph = parsed_json['current_observation']['wind_mph'];
-                    var relative_humidity = parsed_json['current_observation']['relative_humidity'];
-                    var pressure_mb = parsed_json['current_observation']['pressure_mb'];
-                    var weather = parsed_json['current_observation']['weather'];
-                    $('.weather-icon').css('background-image', icon);
-                    $('.result-weather-block').html("Current temperature in " + location + " is: " + temp_c + '<br>' + " Feels like: " + feelslike_c + '<br>' + "Wind speed: " + wind_mph + " km/h" + '<br>' + "Relative humidity: " + relative_humidity + '<br>' + "Pressure : " + pressure_mb + " mbar");
-                    $('.result-weather-heading').html(weather);
-                }
-            });
-            $("#country").val("");
-            $("#city").val("");
-            $("#country").css('border', "3px solid #384e66");
-            $("#country").css('color', "#2b3433");
-            $("#city").css('border', "3px solid #384e66");
-            $("#city").css('color', "#2b3433");
-        }
-        else if (country == "" || country == "Fill the field!") {
-            $("#country").css('border', "3px solid #692412");
-            $("#country").css('color', "#692412");
-            $("#country").val("Fill the field!");
-        }
-        else {
-            $("#city").css('border', "3px solid #692412");
-            $("#city").css('color', "#692412");
-            $("#city").val("Fill the field!");
         }
     });
     $('.owl-carousel').owlCarousel({
@@ -146,7 +106,7 @@ jQuery(document).ready(function ($) {
                 var pressure_mb = parsed_json['current_observation']['pressure_mb'];
                 var weather = parsed_json['current_observation']['weather'];
                 $('.weather-icon').css('background-image', icon);
-                $('.result-weather-block').html("Current temperature in " + location + " is: " + temp_c + '<br>' + " Feels like: " + feelslike_c + '<br>' + "Wind speed: " + wind_mph + " km/h" + '<br>' + "Relative humidity: " + relative_humidity + '<br>' + "Pressure : " + pressure_mb + " mbar");
+                $('.result-weather-block').html("Current temperature in " + location + " is: " + "<b>" + temp_c + "°C" + "</b>" + '<br>' + " Feels like: " + "<b>" + feelslike_c + "°C" + "</b>" + '<br>' + "Wind speed: " + "<b>" + wind_mph + " km/h" + "</b>" + '<br>' + "Relative humidity: " + "<b>" + relative_humidity + "</b>" + '<br>' + "Pressure : " + "<b>" + pressure_mb + " mbar" + "</b>");
                 $('.result-weather-heading').html(weather);
             }
         });
@@ -181,7 +141,7 @@ function initMap() {
                 var pressure_mb = parsed_json['current_observation']['pressure_mb'];
                 var weather = parsed_json['current_observation']['weather'];
                 $('.weather-icon').css('background-image', icon);
-                $('.result-weather-block').html("Current temperature in " + location_city + " is: " + temp_c + '<br>' + " Feels like: " + feelslike_c + '<br>' + "Location: (latitude: " + location.lat().toFixed(2) + ", longtitude: " + location.lng().toFixed(2) + ") " + '<br>' + "Wind speed: " + wind_mph + " km/h" + '<br>' + "Relative humidity: " + relative_humidity + '<br>' + "Pressure : " + pressure_mb + " mbar");
+                $('.result-weather-block').html("Current temperature in " + location_city + " is: " + "<b>" + temp_c + "°C" + "</b>" + '<br>' + " Feels like: " + "<b>" + feelslike_c + "°C" + "</b>" + '<br>' + "Location: (latitude: " + "<b>" + location.lat().toFixed(2) + "</b>" + ", longtitude: " + "<b>" + location.lng().toFixed(2) + "</b>" + ") " + '<br>' + "Wind speed: " + "<b>" + wind_mph + " km/h" + "</b>" + '<br>' + "Relative humidity: " + "<b>" + relative_humidity + "</b>" + '<br>' + "Pressure : " + "<b>" + pressure_mb + " mbar" + "</b>");
                 $('.result-weather-heading').html(weather);
             }
         });
@@ -195,4 +155,48 @@ function onIn() {
 function onOut() {
     $(".rules-block").css("display", "none");
 }
+function sub_form() {
+    $('#overlay').fadeIn(400, function () {
+        $('#modal_form')
+            .css('display', 'block')
+            .animate({ opacity: 1, top: '50%' }, 200);
+    });
+    $("#user_name").val("");
+    $("#user_email").val("");
+    $("#user_phone").val("");
+    return false;
+}
+$('#modal_close, #overlay').click(function () {
+    $('#modal_form')
+        .animate({ opacity: 0, top: '45%' }, 200, function () {
+        $(this).css('display', 'none');
+        $('#overlay').fadeOut(400);
+    });
+});
+function search_form() {
+    var country = $("#country").val();
+    var city = $("#city").val();
+    var root = "https://api.wunderground.com/api/f5b590bbf5a6de61/geolookup/conditions/q/";
+    $.ajax({
+        url: root + country + "/" + city + ".json",
+        dataType: "jsonp",
+        success: function (parsed_json) {
+            var location = parsed_json['location']['city'];
+            var temp_c = parsed_json['current_observation']['temp_c'];
+            var feelslike_c = parsed_json['current_observation']['feelslike_c'];
+            var icon = 'url(' + parsed_json['current_observation']['icon_url'] + ')';
+            var wind_mph = parsed_json['current_observation']['wind_mph'];
+            var relative_humidity = parsed_json['current_observation']['relative_humidity'];
+            var pressure_mb = parsed_json['current_observation']['pressure_mb'];
+            var weather = parsed_json['current_observation']['weather'];
+            $('.weather-icon').css('background-image', icon);
+            $('.result-weather-block').html("Current temperature in " + location + " is: " + "<b>" + temp_c + "°C" + "</b>" + '<br>' + " Feels like: " + "<b>" + feelslike_c + "°C" + "</b>" + '<br>' + "Wind speed: " + "<b>" + wind_mph + " km/h" + "</b>" + '<br>' + "Relative humidity: " + "<b>" + relative_humidity + "</b>" + '<br>' + "Pressure : " + "<b>" + pressure_mb + " mbar" + "</b>");
+            $('.result-weather-heading').html(weather);
+            $("#country").val("");
+            $("#city").val("");
+        }
+    });
+    return false;
+}
+;
 //# sourceMappingURL=main.js.map
